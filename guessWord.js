@@ -1,24 +1,14 @@
-/*
- * word = Det bestämda ordet (5 bokstäver)
- * guess = Gissa ordet (5 bokstäver)
- */
-
-function guessWord(word, guess) {
+export default function guessWord(word, guess) {
   let result = [];
   word = word.toUpperCase();
   guess = guess.toUpperCase();
   const letters = word.length + guess.length;
   if (letters < 10 || letters > 10) {
-    console.log("Båda orden behöver innehålla 5 tecken, gör ett nytt försök!");
+    result = "Båda orden behöver innehålla 5 tecken, gör ett nytt försök!";
   } else if (letters == 10) {
     const wordRegExp = new RegExp(/^(?!.*([A-ZÅÄÖ])\1{2})[A-ZÅÄÖ]+$/);
     if (word.match(wordRegExp)) {
       if (guess.match(wordRegExp)) {
-        if (guess === word) {
-          console.log("Grattis du gissade rätt!");
-        } else if (guess != word) {
-          console.log("Tyvärr gissade du inte rätt!");
-        }
         let misplacedLetter = [];
         let correctLetter = [];
         let incorrectLetter = [];
@@ -47,13 +37,11 @@ function guessWord(word, guess) {
           }
         }
       } else {
-        console.log(`Vi har inte registrerat "${guess}" som ett ord! Gissa på nytt.`);
+        result = `Vi har inte registrerat ${guess} som ett ord! Gissa på nytt.`;
       }
     } else {
-      console.log(`Vi har inte registrerat "${word}" som ett ord! Gissa på nytt.`);
+      result = `Vi har inte registrerat ${word} som ett ord! Gissa på nytt.`;
     }
   }
-  return console.log(result);
+  return result;
 }
-
-guessWord("cykla", "hallå");

@@ -1,11 +1,16 @@
 {
   "name": "wordle-algorithm",
+  "type": "module",
   "version": "1.0.0",
   "description": "- Algoritm för ordleken \"Wordle\"\r - En funktion ska kunna ta två inputs (strings). Ett ord som är gissningen och ett ord som är det korrekta ordet.\r - Funktionen ska sedan kontrollera vilka bokstäver från det ena order förkommer i det andra. Och isåfall var i ordet.",
   "main": "guessWord.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Markus Korhonen",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.5.0"
+  }
 }
